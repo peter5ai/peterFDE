@@ -5,7 +5,7 @@ import { traeBadgePlugin } from 'vite-plugin-trae-solo-badge';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './', // 确保在 GitHub Pages 上使用相对路径加载资源
+  base: '/peterFDE/', // 替换为您在 GitHub 上的仓库名称
   build: {
     sourcemap: 'hidden',
   },
