@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import qrCodeImg from '/qr-code.png'
 
 export const CTA = () => {
   const { t } = useTranslation()
@@ -36,7 +37,7 @@ export const CTA = () => {
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-gold to-gold-dark opacity-50 blur rounded-2xl group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
             <div className="relative w-56 h-56 bg-white rounded-2xl p-2 flex items-center justify-center overflow-hidden">
-               <img src="/qr-code.png" alt={t('cta.qrAlt')} className="w-full h-full object-cover scale-[1.4]" />
+               <img src={qrCodeImg} alt={t('cta.qrAlt')} className="w-full h-full object-cover scale-[1.4]" />
             </div>
             <p className="mt-4 text-gold font-bold tracking-widest text-sm">{t('cta.scanText')}</p>
           </div>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import profileImg from '/profile.png'
 
 export const HeroSection = () => {
   const { t } = useTranslation()
@@ -17,7 +18,7 @@ export const HeroSection = () => {
         >
           <div className="w-40 h-40 md:w-56 md:h-56 rounded-full p-1 bg-gradient-to-br from-gold-light via-gold to-gold-dark overflow-hidden shadow-2xl shadow-gold/10">
             <img 
-              src="/profile.png" 
+              src={profileImg} 
               alt="温泳扬 (Peter)" 
               className="w-full h-full object-cover rounded-full bg-surface"
             />
