@@ -1,89 +1,122 @@
 import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
+import { ArrowDown, BrainCircuit, CheckCircle2, Route, ShieldCheck } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import profileImg from '/profile.png'
 
 export const HeroSection = () => {
   const { t } = useTranslation()
+  const metrics = ['流程诊断', 'Agent 部署', 'SOP 沉淀']
+
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-hero-glow">
-      <div className="absolute inset-0 bg-[url('https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=abstract%20dark%20luxury%20geometric%20shapes%20subtle%20gold%20accent%20minimalist&image_size=landscape_16_9')] bg-cover bg-center opacity-10 mix-blend-overlay" />
-      
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-8 flex justify-center"
-        >
-          <div className="w-40 h-40 md:w-56 md:h-56 rounded-full p-1 bg-gradient-to-br from-gold-light via-gold to-gold-dark overflow-hidden shadow-2xl shadow-gold/10">
-            <img 
-              src={profileImg} 
-              alt="温泳扬 (Peter)" 
-              className="w-full h-full object-cover rounded-full bg-surface"
-            />
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <span className="text-gold uppercase tracking-[0.2em] text-sm md:text-base font-semibold mb-6 block">
-            {t('hero.subtitle')}
-          </span>
-        </motion.div>
-
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-8"
-        >
-          {t('hero.titlePart1')} <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-gold-dark">
-            {t('hero.titleHighlight')}
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto mb-12 leading-relaxed"
-        >
-          {t('hero.descriptionLine1')}<br className="hidden md:block" />
-          {t('hero.descriptionLine2')}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col md:flex-row items-center justify-center gap-6"
-        >
-          <div className="text-left border-l-2 border-gold/30 pl-4">
-            <p className="font-display font-semibold text-lg text-text">{t('hero.nameTitle')}</p>
-            <p className="text-sm text-text-muted">{t('hero.jobTitle')}</p>
-          </div>
-          <a
-            href="#about"
-            className="hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-white/10 hover:border-gold hover:text-gold transition-colors ml-4"
+    <section id="hero" className="relative min-h-screen overflow-hidden bg-hero-glow pt-28">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-20">
+        <div className="grid min-h-[calc(100vh-7rem)] items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
           >
-            <ArrowDown size={20} />
-          </a>
-        </motion.div>
+            <div className="mb-8 inline-flex items-center gap-2 border border-cyan/25 bg-cyan/10 px-4 py-2 text-sm font-semibold text-cyan">
+              <BrainCircuit size={16} />
+              {t('hero.subtitle')}
+            </div>
+
+            <h1 className="mb-8 text-5xl font-bold leading-[1.08] md:text-6xl lg:text-7xl">
+              {t('hero.titlePart1')}
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-cyan">
+                {t('hero.titleHighlight')}
+              </span>
+            </h1>
+
+            <p className="mb-10 max-w-2xl text-lg leading-8 text-text-muted md:text-xl">
+              {t('hero.descriptionLine1')}
+              <br className="hidden md:block" />
+              {t('hero.descriptionLine2')}
+            </p>
+
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <a
+                href="#cta"
+                className="inline-flex h-12 items-center justify-center bg-gold px-6 text-sm font-bold text-ink transition hover:bg-gold-light"
+              >
+                {t('nav.getDiagnosis')}
+              </a>
+              <a
+                href="#cases"
+                className="inline-flex h-12 items-center justify-center border border-white/15 px-6 text-sm font-semibold text-text transition hover:border-cyan/60 hover:text-cyan"
+              >
+                查看部署案例
+              </a>
+            </div>
+
+            <div className="mt-12 grid max-w-2xl grid-cols-3 border-y border-white/10">
+              {metrics.map((item) => (
+                <div key={item} className="py-5 pr-4">
+                  <div className="mb-2 flex items-center gap-2 text-gold">
+                    <CheckCircle2 size={16} />
+                    <span className="text-xs font-semibold uppercase tracking-wider">FDE</span>
+                  </div>
+                  <p className="text-sm text-text-muted">{item}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 34 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="relative"
+          >
+            <div className="absolute -inset-4 border border-white/5 bg-white/[0.02]" />
+            <div className="relative border border-white/10 bg-surface/80 p-5 shadow-2xl shadow-black/30 backdrop-blur">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <div>
+                  <p className="text-sm font-semibold text-gold">{t('hero.nameTitle')}</p>
+                  <p className="mt-1 text-xs text-text-muted">{t('hero.jobTitle')}</p>
+                </div>
+                <ShieldCheck className="text-cyan" size={28} />
+              </div>
+
+              <div className="grid gap-5 pt-5 md:grid-cols-[0.95fr_1.05fr]">
+                <div className="relative min-h-[360px] overflow-hidden bg-gradient-to-b from-white/10 to-white/[0.02]">
+                  <img
+                    src={profileImg}
+                    alt="温泳扬 (Peter)"
+                    className="absolute bottom-0 left-1/2 h-[92%] max-w-none -translate-x-1/2 object-contain"
+                  />
+                </div>
+
+                <div className="space-y-4">
+                  {[
+                    ['01', '找出最值得 AI 重做的流程'],
+                    ['02', '重构输入、动作、标准和责任'],
+                    ['03', '部署智能体并沉淀企业工作法'],
+                  ].map(([step, label]) => (
+                    <div key={step} className="border border-white/10 bg-background/70 p-4">
+                      <div className="mb-3 flex items-center justify-between">
+                        <span className="font-display text-2xl font-bold text-gold">{step}</span>
+                        <Route size={18} className="text-cyan" />
+                      </div>
+                      <p className="text-sm leading-6 text-text-muted">{label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-white/30"
+      <a
+        href="#about"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-xs font-semibold uppercase tracking-widest text-text-muted transition hover:text-gold md:flex"
       >
-        <ArrowDown size={24} />
-      </motion.div>
+        Scroll
+        <ArrowDown size={16} />
+      </a>
     </section>
   )
 }

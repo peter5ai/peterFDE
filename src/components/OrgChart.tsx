@@ -1,115 +1,84 @@
 import { motion } from 'framer-motion'
-import { Brain, GraduationCap, Target, Megaphone, Briefcase, FileSpreadsheet, Scale } from 'lucide-react'
+import { Brain, Briefcase, FileSpreadsheet, GraduationCap, Megaphone, Scale, Target } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 export const OrgChart = () => {
   const { t } = useTranslation()
+  const sectors = [
+    {
+      title: t('orgChart.learning.title'),
+      brain: t('orgChart.learning.brain'),
+      brainDesc: t('orgChart.learning.brainDesc'),
+      agents: [
+        [GraduationCap, t('orgChart.learning.agent1'), t('orgChart.learning.agent1Desc')],
+        [Target, t('orgChart.learning.agent2'), t('orgChart.learning.agent2Desc')],
+        [Megaphone, t('orgChart.learning.agent3'), t('orgChart.learning.agent3Desc')],
+      ],
+    },
+    {
+      title: t('orgChart.b2b.title'),
+      brain: t('orgChart.b2b.brain'),
+      brainDesc: t('orgChart.b2b.brainDesc'),
+      agents: [
+        [Briefcase, t('orgChart.b2b.agent1'), t('orgChart.b2b.agent1Desc')],
+        [FileSpreadsheet, t('orgChart.b2b.agent2'), t('orgChart.b2b.agent2Desc')],
+        [Scale, t('orgChart.b2b.agent3'), t('orgChart.b2b.agent3Desc')],
+      ],
+    },
+  ]
+
   return (
     <section id="architecture" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-gold/[0.02] to-transparent pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
-      
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="mb-16 max-w-4xl"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+          <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-cyan">Operating System</span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
             {t('orgChart.titlePart1')}<span className="text-gold">{t('orgChart.titleHighlight')}</span>{t('orgChart.titlePart2')}
           </h2>
-          <p className="text-xl text-text-muted italic max-w-3xl mx-auto">
-            {t('orgChart.quote')}
-          </p>
+          <p className="text-lg md:text-xl text-text-muted leading-8">{t('orgChart.quote')}</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Learning Sector */}
-          <div className="relative p-8 border border-white/5 rounded-2xl bg-background/50">
-            <h3 className="text-2xl font-display font-bold text-center mb-12 text-white/80">{t('orgChart.learning.title')}</h3>
-            
-            <div className="flex flex-col items-center">
-              {/* Central Brain */}
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="w-48 p-4 border border-gold/30 bg-gold/5 rounded-xl text-center relative z-10"
-              >
-                <Brain className="w-8 h-8 text-gold mx-auto mb-2" />
-                <h4 className="font-bold text-gold mb-1">{t('orgChart.learning.brain')}</h4>
-                <p className="text-xs text-text-muted">{t('orgChart.learning.brainDesc')}</p>
-              </motion.div>
-
-              {/* Connecting Lines */}
-              <div className="w-px h-12 bg-gradient-to-b from-gold/30 to-white/10 relative">
-                <div className="absolute top-0 left-0 w-full h-full animate-[pulse_2s_ease-in-out_Infinity] bg-gold/50 blur-[2px]" />
+        <div className="grid gap-6 lg:grid-cols-2">
+          {sectors.map((sector, sectorIndex) => (
+            <motion.div
+              key={sector.title}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: sectorIndex * 0.1 }}
+              className="border border-white/10 bg-surface/65 p-6 md:p-8"
+            >
+              <div className="mb-8 flex items-start justify-between gap-4 border-b border-white/10 pb-6">
+                <div>
+                  <h3 className="text-2xl font-display font-bold">{sector.title}</h3>
+                  <p className="mt-2 text-sm text-text-muted">Knowledge Base + Agent Team</p>
+                </div>
+                <Brain className="shrink-0 text-gold" size={32} />
               </div>
-              <div className="w-[80%] h-px bg-white/10" />
 
-              {/* Agents */}
-              <div className="flex justify-between w-full mt-8 gap-4">
-                <motion.div whileHover={{ y: -5 }} className="flex-1 p-4 border border-white/10 bg-surface rounded-xl text-center">
-                  <GraduationCap className="w-6 h-6 text-white/60 mx-auto mb-2" />
-                  <h5 className="text-sm font-bold mb-1">{t('orgChart.learning.agent1')}</h5>
-                  <p className="text-[10px] text-text-muted">{t('orgChart.learning.agent1Desc')}</p>
-                </motion.div>
-                <motion.div whileHover={{ y: -5 }} className="flex-1 p-4 border border-white/10 bg-surface rounded-xl text-center relative">
-                  <div className="absolute -top-px left-1/2 -translate-x-1/2 w-px h-8 bg-white/10" />
-                  <Target className="w-6 h-6 text-white/60 mx-auto mb-2" />
-                  <h5 className="text-sm font-bold mb-1">{t('orgChart.learning.agent2')}</h5>
-                  <p className="text-[10px] text-text-muted">{t('orgChart.learning.agent2Desc')}</p>
-                </motion.div>
-                <motion.div whileHover={{ y: -5 }} className="flex-1 p-4 border border-white/10 bg-surface rounded-xl text-center">
-                  <Megaphone className="w-6 h-6 text-white/60 mx-auto mb-2" />
-                  <h5 className="text-sm font-bold mb-1">{t('orgChart.learning.agent3')}</h5>
-                  <p className="text-[10px] text-text-muted">{t('orgChart.learning.agent3Desc')}</p>
-                </motion.div>
+              <div className="mb-6 border border-gold/25 bg-gold/5 p-5">
+                <div className="mb-2 text-sm font-bold uppercase tracking-widest text-gold">{sector.brain}</div>
+                <p className="text-sm leading-6 text-text-muted">{sector.brainDesc}</p>
               </div>
-            </div>
-          </div>
 
-          {/* B2B Sector */}
-          <div className="relative p-8 border border-white/5 rounded-2xl bg-background/50">
-            <h3 className="text-2xl font-display font-bold text-center mb-12 text-white/80">{t('orgChart.b2b.title')}</h3>
-            
-            <div className="flex flex-col items-center">
-              {/* Central Brain */}
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="w-48 p-4 border border-gold/30 bg-gold/5 rounded-xl text-center relative z-10"
-              >
-                <Brain className="w-8 h-8 text-gold mx-auto mb-2" />
-                <h4 className="font-bold text-gold mb-1">{t('orgChart.b2b.brain')}</h4>
-                <p className="text-xs text-text-muted">{t('orgChart.b2b.brainDesc')}</p>
-              </motion.div>
-
-              {/* Connecting Lines */}
-              <div className="w-px h-12 bg-gradient-to-b from-gold/30 to-white/10 relative">
-                <div className="absolute top-0 left-0 w-full h-full animate-[pulse_2s_ease-in-out_Infinity] bg-gold/50 blur-[2px]" delay-100 />
+              <div className="grid gap-3 sm:grid-cols-3">
+                {sector.agents.map(([Icon, title, desc]) => (
+                  <div key={title as string} className="min-h-[150px] border border-white/10 bg-background/70 p-4">
+                    <Icon className="mb-4 text-cyan" size={24} />
+                    <h4 className="mb-2 text-sm font-bold leading-snug">{title as string}</h4>
+                    <p className="text-xs leading-5 text-text-muted">{desc as string}</p>
+                  </div>
+                ))}
               </div>
-              <div className="w-[80%] h-px bg-white/10" />
-
-              {/* Agents */}
-              <div className="flex justify-between w-full mt-8 gap-4">
-                <motion.div whileHover={{ y: -5 }} className="flex-1 p-4 border border-white/10 bg-surface rounded-xl text-center">
-                  <Briefcase className="w-6 h-6 text-white/60 mx-auto mb-2" />
-                  <h5 className="text-sm font-bold mb-1">{t('orgChart.b2b.agent1')}</h5>
-                  <p className="text-[10px] text-text-muted">{t('orgChart.b2b.agent1Desc')}</p>
-                </motion.div>
-                <motion.div whileHover={{ y: -5 }} className="flex-1 p-4 border border-white/10 bg-surface rounded-xl text-center relative">
-                  <div className="absolute -top-px left-1/2 -translate-x-1/2 w-px h-8 bg-white/10" />
-                  <FileSpreadsheet className="w-6 h-6 text-white/60 mx-auto mb-2" />
-                  <h5 className="text-sm font-bold mb-1">{t('orgChart.b2b.agent2')}</h5>
-                  <p className="text-[10px] text-text-muted">{t('orgChart.b2b.agent2Desc')}</p>
-                </motion.div>
-                <motion.div whileHover={{ y: -5 }} className="flex-1 p-4 border border-white/10 bg-surface rounded-xl text-center">
-                  <Scale className="w-6 h-6 text-white/60 mx-auto mb-2" />
-                  <h5 className="text-sm font-bold mb-1">{t('orgChart.b2b.agent3')}</h5>
-                  <p className="text-[10px] text-text-muted">{t('orgChart.b2b.agent3Desc')}</p>
-                </motion.div>
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

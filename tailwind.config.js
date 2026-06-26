@@ -9,17 +9,19 @@ export default {
     },
     extend: {
       colors: {
-        background: '#050505',
-        surface: '#0A0A0A',
-        surfaceLight: '#111111',
+        background: '#09111F',
+        surface: '#0F1A2B',
+        surfaceLight: '#172338',
         gold: {
-          DEFAULT: '#D4AF37',
-          light: '#F3E5AB',
-          dark: '#AA8C2C',
+          DEFAULT: '#E0B15B',
+          light: '#F7DFA6',
+          dark: '#A8742B',
         },
+        cyan: '#5DD3D6',
+        ink: '#07101C',
         text: {
-          DEFAULT: '#FAFAFA',
-          muted: '#A1A1AA',
+          DEFAULT: '#F6F8FB',
+          muted: '#A9B6C8',
         }
       },
       fontFamily: {
@@ -28,8 +30,8 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-glow': 'radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 50%)',
-        'luxury-gradient': 'linear-gradient(to bottom right, #050505, #111111, #0a0a0a)',
+        'hero-glow': 'radial-gradient(circle at 18% 12%, rgba(224, 177, 91, 0.18) 0%, transparent 32%), radial-gradient(circle at 82% 0%, rgba(93, 211, 214, 0.12) 0%, transparent 28%)',
+        'luxury-gradient': 'linear-gradient(135deg, #07101C 0%, #0B1626 44%, #111A2A 100%)',
       }
     },
   },

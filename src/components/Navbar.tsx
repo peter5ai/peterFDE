@@ -36,30 +36,30 @@ export const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-          isScrolled ? 'bg-surface/90 backdrop-blur-md border-b border-white/5' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? 'bg-background/88 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20' : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-          <a href="#hero" className="font-display font-bold text-xl tracking-wider text-text flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-gold inline-block" />
-            PETER <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-gold-dark">AI</span>
+          <a href="#hero" className="font-display font-bold text-xl tracking-wider text-text flex items-center gap-3">
+            <span className="grid h-9 w-9 place-items-center border border-gold/35 bg-gold/10 text-sm text-gold">P</span>
+            <span>PETER <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-cyan">AI</span></span>
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm text-text-muted hover:text-gold transition-colors"
+                className="text-sm font-medium text-text-muted hover:text-cyan transition-colors"
               >
                 {link.name}
               </a>
             ))}
             <button 
               onClick={toggleLanguage}
-              className="flex items-center gap-1 text-sm text-text-muted hover:text-gold transition-colors ml-4"
+              className="flex items-center gap-1 text-sm text-text-muted hover:text-cyan transition-colors ml-2"
               title="Switch Language"
             >
               <Globe size={16} />
@@ -67,7 +67,7 @@ export const Navbar = () => {
             </button>
             <a
               href="#cta"
-              className="px-5 py-2.5 text-sm font-medium border border-gold text-gold hover:bg-gold hover:text-background transition-colors rounded-none ml-4"
+              className="px-5 py-2.5 text-sm font-bold bg-gold text-ink hover:bg-gold-light transition-colors ml-2"
             >
               {t('nav.getDiagnosis')}
             </a>
@@ -77,7 +77,7 @@ export const Navbar = () => {
           <div className="flex md:hidden items-center gap-4">
             <button 
               onClick={toggleLanguage}
-              className="text-text-muted hover:text-gold transition-colors"
+              className="text-text-muted hover:text-cyan transition-colors"
             >
               <span className="uppercase text-sm font-bold">{i18n.language === 'zh' ? 'EN' : '中'}</span>
             </button>
@@ -98,7 +98,7 @@ export const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-surface pt-24 px-6"
+            className="fixed inset-0 z-40 bg-background pt-24 px-6"
           >
             <div className="flex flex-col gap-6">
               {navLinks.map((link) => (
@@ -106,7 +106,7 @@ export const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl font-display text-text-muted hover:text-gold transition-colors"
+                  className="text-xl font-display text-text-muted hover:text-cyan transition-colors"
                 >
                   {link.name}
                 </a>
@@ -114,7 +114,7 @@ export const Navbar = () => {
               <a
                 href="#cta"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-4 px-6 py-4 text-center font-medium border border-gold text-gold hover:bg-gold hover:text-background transition-colors"
+                className="mt-4 px-6 py-4 text-center font-bold bg-gold text-ink hover:bg-gold-light transition-colors"
               >
                 {t('nav.getDiagnosisMobile')}
               </a>

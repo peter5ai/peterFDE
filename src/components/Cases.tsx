@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Terminal } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 export const Cases = () => {
@@ -32,22 +32,23 @@ export const Cases = () => {
   ]
 
   return (
-    <section id="cases" className="py-24 relative">
-      <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-white/[0.01] to-transparent pointer-events-none" />
+    <section id="cases" className="py-24 relative bg-ink/35">
+      <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-cyan/[0.03] to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 md:mb-24"
+          className="mb-14 md:mb-16 max-w-4xl"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+          <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-cyan">Field Cases</span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
             {t('cases.titlePart1')}<br />
             {t('cases.titlePart2')}<span className="text-gold">{t('cases.titleHighlight')}</span>
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-5">
           {cases.map((item, index) => (
             <motion.div
               key={index}
@@ -55,39 +56,39 @@ export const Cases = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className={`p-8 border transition-all duration-300 group hover:-translate-y-2 ${
+              className={`p-6 md:p-8 border transition-all duration-300 group hover:-translate-y-1 ${
                 item.featured 
                   ? 'lg:col-span-3 border-gold/30 bg-gold/5 hover:border-gold/60' 
-                  : 'border-white/5 bg-surface hover:border-white/20'
+                  : 'border-white/10 bg-surface/80 hover:border-cyan/35'
               }`}
             >
-              <div className="flex flex-col h-full">
-                <div className="mb-8">
+              <div className={`grid h-full gap-8 ${item.featured ? 'lg:grid-cols-[0.8fr_1.2fr]' : ''}`}>
+                <div>
                   {item.featured && (
                     <span className="inline-block px-3 py-1 bg-gold/10 text-gold text-xs font-bold tracking-widest uppercase mb-4 border border-gold/20">
                       {t('cases.featuredTag')}
                     </span>
                   )}
                   <h3 className="text-2xl font-display font-bold mb-2 text-white/90">{item.title}</h3>
-                  <p className="text-gold text-sm font-semibold tracking-wider uppercase">{item.subtitle}</p>
+                  <p className="text-cyan text-sm font-semibold tracking-wider uppercase">{item.subtitle}</p>
                 </div>
 
-                <div className="space-y-6 flex-grow">
-                  <div>
+                <div className={`grid gap-4 ${item.featured ? 'md:grid-cols-3' : ''}`}>
+                  <div className="border border-red-400/15 bg-red-950/10 p-4">
                     <span className="text-xs text-text-muted uppercase tracking-wider mb-2 block">{t('cases.labels.pain')}</span>
                     <p className="text-red-400/80 leading-relaxed">{item.pain}</p>
                   </div>
                   
-                  <div className="flex items-center justify-center py-2">
+                  <div className="hidden items-center justify-center py-2 lg:flex">
                     <ArrowRight className="text-white/20 group-hover:text-gold transition-colors" />
                   </div>
 
-                  <div>
+                  <div className="border border-white/10 bg-background/55 p-4">
                     <span className="text-xs text-text-muted uppercase tracking-wider mb-2 block">{t('cases.labels.action')}</span>
                     <p className="text-white/70 leading-relaxed">{item.action}</p>
                   </div>
 
-                  <div className="pt-4 mt-4 border-t border-white/5">
+                  <div className="border border-green-400/15 bg-green-950/10 p-4">
                     <span className="text-xs text-gold uppercase tracking-wider mb-2 block">{t('cases.labels.result')}</span>
                     <p className="text-green-400/90 font-medium leading-relaxed">{item.result}</p>
                   </div>

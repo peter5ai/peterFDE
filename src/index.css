@@ -5,6 +5,11 @@
 @layer base {
   body {
     @apply bg-background text-text font-sans antialiased overflow-x-hidden selection:bg-gold selection:text-background;
+    background:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+      #09111F;
+    background-size: 56px 56px;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -33,11 +38,11 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #09111F;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #2B3B52;
   border-radius: 4px;
 }
 

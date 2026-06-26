@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion'
+import { Brain, Building2, Cpu, LineChart, Network } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+
+const icons = [Brain, Building2, LineChart, Network, Cpu]
 
 export const Timeline = () => {
   const { t } = useTranslation()
@@ -33,76 +36,63 @@ export const Timeline = () => {
   ]
 
   return (
-    <section id="about" className="py-24 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.01] to-transparent pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+    <section id="about" className="relative py-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-16 md:mb-24 text-center md:text-left"
+          className="mb-14 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
-            {t('about.titlePart1')}<br className="hidden md:block"/>
-            <span className="text-gold">{t('about.titleHighlight')}</span>
-          </h2>
-          <p className="text-text-muted text-lg max-w-2xl">{t('about.subtitle')}</p>
+          <div>
+            <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-cyan">Why Peter</span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold leading-tight">
+              {t('about.titlePart1')}
+              <br />
+              <span className="text-gold">{t('about.titleHighlight')}</span>
+            </h2>
+          </div>
+          <p className="self-end text-lg leading-8 text-text-muted">{t('about.subtitle')}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Timeline */}
-          <div className="relative border-l border-white/10 ml-4 md:ml-0">
-            {timelineEvents.map((event, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+        <div className="grid gap-4 md:grid-cols-5">
+          {timelineEvents.map((event, index) => {
+            const Icon = icons[index]
+            return (
+              <motion.div
+                key={event.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: index * 0.1 }}
-                className="mb-12 pl-8 relative group"
+                transition={{ delay: index * 0.08 }}
+                className="group min-h-[280px] border border-white/10 bg-surface/65 p-5 transition hover:-translate-y-1 hover:border-cyan/40 hover:bg-surfaceLight/80"
               >
-                <span className="absolute w-3 h-3 bg-surface border border-gold rounded-full -left-[6.5px] top-2 group-hover:bg-gold transition-colors" />
-                <span className="text-gold text-sm font-semibold tracking-wider uppercase block mb-2">{event.period}</span>
-                <h3 className="text-xl font-display font-bold mb-2">{event.title}</h3>
-                <p className="text-text-muted leading-relaxed">{event.description}</p>
+                <div className="mb-8 flex items-center justify-between">
+                  <span className="text-sm font-semibold text-gold">{event.period}</span>
+                  <Icon className="text-cyan/70 group-hover:text-cyan" size={22} />
+                </div>
+                <h3 className="mb-4 text-xl font-display font-bold leading-snug">{event.title}</h3>
+                <p className="text-sm leading-7 text-text-muted">{event.description}</p>
               </motion.div>
-            ))}
-          </div>
-
-          {/* Venn Diagram Visual */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="relative h-[400px] flex items-center justify-center"
-          >
-            <div className="absolute inset-0 bg-hero-glow opacity-50" />
-            <div className="relative w-full max-w-[400px] aspect-square">
-              {/* Circle 1 */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full border border-gold/40 bg-gold/5 backdrop-blur-sm flex items-start justify-center pt-8 mix-blend-screen transition-transform hover:scale-105 cursor-default">
-                <span className="text-sm font-semibold text-gold-light">{t('about.venn.circle1')}</span>
-              </div>
-              {/* Circle 2 */}
-              <div className="absolute bottom-10 left-4 w-48 h-48 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm flex items-end justify-start pb-12 pl-6 mix-blend-screen transition-transform hover:scale-105 cursor-default">
-                <span className="text-sm font-semibold text-text-muted">{t('about.venn.circle2')}</span>
-              </div>
-              {/* Circle 3 */}
-              <div className="absolute bottom-10 right-4 w-48 h-48 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm flex items-end justify-end pb-12 pr-6 mix-blend-screen transition-transform hover:scale-105 cursor-default">
-                <span className="text-sm font-semibold text-text-muted">{t('about.venn.circle3')}</span>
-              </div>
-              
-              {/* Intersection */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10">
-                <motion.div 
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ repeat: Infinity, duration: 3 }}
-                  className="bg-gold text-background font-bold text-sm px-4 py-2 rounded-full shadow-[0_0_30px_rgba(212,175,55,0.4)] whitespace-nowrap"
-                  dangerouslySetInnerHTML={{ __html: t('about.venn.center') }}
-                />
-              </div>
-            </div>
-          </motion.div>
+            )
+          })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-8 grid gap-4 border border-gold/20 bg-gold/5 p-6 md:grid-cols-4"
+        >
+          {[t('about.venn.circle1'), t('about.venn.circle2'), t('about.venn.circle3'), t('about.venn.center').replace('<br/>', ' ')].map((item, index) => (
+            <div key={item} className="flex items-center gap-3">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-gold/30 text-xs font-bold text-gold">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span className="text-sm font-semibold text-text">{item}</span>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )
