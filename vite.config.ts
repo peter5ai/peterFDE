@@ -4,7 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/peterFDE/', // 替换为您在 GitHub 上的仓库名称
+  base: './',
   build: {
     sourcemap: 'hidden',
   },
