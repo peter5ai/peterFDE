@@ -10,11 +10,11 @@ export const Navbar = () => {
 
   const navLinks = [
     { name: t('nav.home'), href: '#hero' },
-    { name: t('nav.about'), href: '#about' },
     { name: t('nav.painPoints'), href: '#pain-points' },
-    { name: t('nav.architecture'), href: '#architecture' },
+    { name: '适配诊断', href: '#fit-check' },
+    { name: '交付闭环', href: '#delivery' },
     { name: t('nav.cases'), href: '#cases' },
-    { name: t('nav.logic'), href: '#logic' },
+    { name: '方法底座', href: '#architecture' },
   ]
 
   const toggleLanguage = () => {
@@ -47,7 +47,7 @@ export const Navbar = () => {
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden md:flex items-center gap-5">
             {navLinks.map((link) => (
               <a
                 key={link.name}

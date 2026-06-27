@@ -5,7 +5,7 @@ import profileImg from '/profile.png'
 
 export const HeroSection = () => {
   const { t } = useTranslation()
-  const metrics = ['流程诊断', 'Agent 部署', 'SOP 沉淀']
+  const metrics = ['场景筛选', '流程重构', 'Agent 部署', '验收复盘']
 
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden bg-hero-glow pt-28">
@@ -20,20 +20,20 @@ export const HeroSection = () => {
           >
             <div className="mb-8 inline-flex items-center gap-2 border border-cyan/25 bg-cyan/10 px-4 py-2 text-sm font-semibold text-cyan">
               <BrainCircuit size={16} />
-              {t('hero.subtitle')}
+              PeterAI 企业 AI 诊断与智能体落地
             </div>
 
-            <h1 className="mb-8 text-5xl font-bold leading-[1.08] md:text-6xl lg:text-7xl">
-              {t('hero.titlePart1')}
+            <h1 className="mb-8 text-4xl font-bold leading-[1.12] md:text-6xl lg:text-7xl">
+              找到最值得 AI 重做的流程
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-cyan">
-                {t('hero.titleHighlight')}
+                把它跑成企业自己的工作系统
               </span>
             </h1>
 
             <p className="mb-10 max-w-2xl text-lg leading-8 text-text-muted md:text-xl">
-              {t('hero.descriptionLine1')}
+              不先卖工具，不先讲模型。先判断哪个流程高频、高痛、可衡量、风险可控，
               <br className="hidden md:block" />
-              {t('hero.descriptionLine2')}
+              再用智能体跑试点，把经验沉淀成 SOP、知识库和异常案例库。
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
@@ -47,11 +47,11 @@ export const HeroSection = () => {
                 href="#cases"
                 className="inline-flex h-12 items-center justify-center border border-white/15 px-6 text-sm font-semibold text-text transition hover:border-cyan/60 hover:text-cyan"
               >
-                查看部署案例
+                查看证据链案例
               </a>
             </div>
 
-            <div className="mt-12 grid max-w-2xl grid-cols-3 border-y border-white/10">
+            <div className="mt-12 grid max-w-2xl grid-cols-2 border-y border-white/10 sm:grid-cols-4">
               {metrics.map((item) => (
                 <div key={item} className="py-5 pr-4">
                   <div className="mb-2 flex items-center gap-2 text-gold">
@@ -91,9 +91,10 @@ export const HeroSection = () => {
 
                 <div className="space-y-4">
                   {[
-                    ['01', '找出最值得 AI 重做的流程'],
+                    ['01', '判断是否值得启动'],
                     ['02', '重构输入、动作、标准和责任'],
-                    ['03', '部署智能体并沉淀企业工作法'],
+                    ['03', '部署智能体并跑真实工作流'],
+                    ['04', '沉淀 SOP、验收标准和异常案例'],
                   ].map(([step, label]) => (
                     <div key={step} className="border border-white/10 bg-background/70 p-4">
                       <div className="mb-3 flex items-center justify-between">

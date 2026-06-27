@@ -38,11 +38,14 @@ export const OrgChart = () => {
           viewport={{ once: true }}
           className="mb-16 max-w-4xl"
         >
-          <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-cyan">Operating System</span>
+          <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-cyan">Method Base</span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
-            {t('orgChart.titlePart1')}<span className="text-gold">{t('orgChart.titleHighlight')}</span>{t('orgChart.titlePart2')}
+            每次交付都要留下
+            <span className="block text-gold">可复用的 PeterAI 方法底座</span>
           </h2>
-          <p className="text-lg md:text-xl text-text-muted leading-8">{t('orgChart.quote')}</p>
+          <p className="text-lg md:text-xl text-text-muted leading-8">
+            长期护城河不是会用几个 AI 工具，而是把真实问题、评价标准、流程 SOP、异常案例和复盘样本沉淀成下一次交付能调用的知识资产。
+          </p>
         </motion.div>
 
         <div className="grid gap-6 lg:grid-cols-2">

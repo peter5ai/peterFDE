@@ -2,6 +2,8 @@ import { Navbar } from './components/Navbar'
 import { HeroSection } from './components/HeroSection'
 import { Timeline } from './components/Timeline'
 import { PainPoints } from './components/PainPoints'
+import { FitCheck } from './components/FitCheck'
+import { DeliveryLoop } from './components/DeliveryLoop'
 import { OrgChart } from './components/OrgChart'
 import { Cases } from './components/Cases'
 import { LogicMoat } from './components/LogicMoat'
@@ -15,6 +17,8 @@ function App() {
         <HeroSection />
         <Timeline />
         <PainPoints />
+        <FitCheck />
+        <DeliveryLoop />
         <OrgChart />
         <Cases />
         <LogicMoat />
