@@ -40,17 +40,17 @@ const labels = [
 
 export const Cases = () => {
   return (
-    <section id="cases" className="py-24 relative bg-ink/35">
+    <section id="cases" className="py-16 md:py-24 relative bg-ink/35">
       <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-cyan/[0.03] to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-14 md:mb-16 max-w-4xl"
+          className="mb-10 md:mb-16 max-w-4xl"
         >
           <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-cyan">Proof Chain</span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 md:mb-6 leading-tight">
             案例不讲神话，
             <span className="block text-gold">只讲流程、资产和边界</span>
           </h2>
@@ -59,7 +59,7 @@ export const Cases = () => {
           </p>
         </motion.div>
 
-        <div className="grid gap-5">
+        <div className="grid gap-4 md:gap-5">
           {cases.map((item, index) => (
             <motion.div
               key={item.title}
@@ -67,24 +67,24 @@ export const Cases = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
-              className={`border p-6 md:p-8 transition hover:-translate-y-1 ${
+              className={`border p-4 md:p-8 transition hover:-translate-y-1 ${
                 item.featured ? 'border-gold/30 bg-gold/5 hover:border-gold/60' : 'border-white/10 bg-surface/80 hover:border-cyan/35'
               }`}
             >
-              <div className="mb-8 grid gap-5 lg:grid-cols-[0.75fr_1.25fr]">
+              <div className="grid gap-4 md:gap-5 lg:grid-cols-[0.75fr_1.25fr]">
                 <div>
                   {item.featured && (
-                    <span className="mb-4 inline-block border border-gold/20 bg-gold/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-gold">
+                    <span className="mb-3 md:mb-4 inline-block border border-gold/20 bg-gold/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-gold">
                       核心案例
                     </span>
                   )}
                   <h3 className="mb-2 text-2xl font-display font-bold text-white/90">{item.title}</h3>
                   <p className="text-sm font-semibold uppercase tracking-wider text-cyan">{item.subtitle}</p>
                 </div>
-                <div className="grid gap-4 md:grid-cols-4">
+                <div className="grid gap-3 md:gap-4 md:grid-cols-4">
                   {labels.map(([label, key, Icon]) => (
-                    <div key={key} className="border border-white/10 bg-background/60 p-4">
-                      <div className="mb-4 flex items-center justify-between">
+                    <div key={key} className="border border-white/10 bg-background/60 p-3 md:p-4">
+                      <div className="mb-3 md:mb-4 flex items-center justify-between">
                         <span className="text-xs font-bold uppercase tracking-widest text-text-muted">{label}</span>
                         <Icon size={18} className={key === 'boundary' ? 'text-gold' : 'text-cyan'} />
                       </div>

@@ -36,13 +36,13 @@ export const Timeline = () => {
   ]
 
   return (
-    <section id="about" className="relative py-24">
+    <section id="about" className="relative py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-14 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]"
+          className="mb-10 md:mb-14 grid gap-6 md:gap-8 lg:grid-cols-[0.9fr_1.1fr]"
         >
           <div>
             <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-cyan">Why Peter</span>
@@ -55,7 +55,7 @@ export const Timeline = () => {
           <p className="self-end text-lg leading-8 text-text-muted">{t('about.subtitle')}</p>
         </motion.div>
 
-        <div className="grid gap-4 md:grid-cols-5">
+        <div className="grid gap-3 md:gap-4 md:grid-cols-5">
           {timelineEvents.map((event, index) => {
             const Icon = icons[index]
             return (
@@ -65,9 +65,9 @@ export const Timeline = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: index * 0.08 }}
-                className="group min-h-[280px] border border-white/10 bg-surface/65 p-5 transition hover:-translate-y-1 hover:border-cyan/40 hover:bg-surfaceLight/80"
+                className="group min-h-[220px] md:min-h-[280px] border border-white/10 bg-surface/65 p-4 md:p-5 transition hover:-translate-y-1 hover:border-cyan/40 hover:bg-surfaceLight/80"
               >
-                <div className="mb-8 flex items-center justify-between">
+                <div className="mb-5 md:mb-8 flex items-center justify-between">
                   <span className="text-sm font-semibold text-gold">{event.period}</span>
                   <Icon className="text-cyan/70 group-hover:text-cyan" size={22} />
                 </div>
@@ -82,7 +82,7 @@ export const Timeline = () => {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-8 grid gap-4 border border-gold/20 bg-gold/5 p-6 md:grid-cols-4"
+          className="mt-5 md:mt-8 grid gap-3 md:gap-4 border border-gold/20 bg-gold/5 p-4 md:p-6 md:grid-cols-4"
         >
           {[t('about.venn.circle1'), t('about.venn.circle2'), t('about.venn.circle3'), t('about.venn.center').replace('<br/>', ' ')].map((item, index) => (
             <div key={item} className="flex items-center gap-3">
