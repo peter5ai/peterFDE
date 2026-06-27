@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion'
 import { CheckCircle2, XCircle } from 'lucide-react'
-
-const contrasts = [
-  ['不卖 AI 工具清单', '找出最值得 AI 重做的业务流程'],
-  ['不做一次性培训热闹', '让老板和员工会调度、会验收、会复盘'],
-  ['不承诺一步全面 AI 化', '先跑高频、高痛、可衡量的小闭环'],
-  ['不讲裁员故事', '把人从低价值动作转向判断、关系和异常处理'],
-]
+import { useTranslation } from 'react-i18next'
 
 export const PainPoints = () => {
+  const { t } = useTranslation()
+  const contrasts = [
+    [t('positioning.contrasts.0.wrong'), t('positioning.contrasts.0.right')],
+    [t('positioning.contrasts.1.wrong'), t('positioning.contrasts.1.right')],
+    [t('positioning.contrasts.2.wrong'), t('positioning.contrasts.2.right')],
+    [t('positioning.contrasts.3.wrong'), t('positioning.contrasts.3.right')],
+  ]
+
   return (
     <section id="pain-points" className="py-16 md:py-24 relative overflow-hidden bg-ink/35">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
@@ -21,11 +23,11 @@ export const PainPoints = () => {
         >
           <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-cyan">Positioning</span>
           <h2 className="text-3xl md:text-5xl font-display font-bold leading-tight">
-            PeterAI 不是卖工具，
-            <span className="block text-gold">是帮企业重写工作方式</span>
+            {t('positioning.titlePart1')}
+            <span className="block text-gold">{t('positioning.titleHighlight')}</span>
           </h2>
           <p className="mt-4 md:mt-6 text-lg leading-8 text-text-muted">
-            企业 AI 改造的第一问题不是“用哪个模型”，而是“哪个流程值得被 AI 重做，谁负责验收，失败怎么接管，经验怎么沉淀”。
+            {t('positioning.description')}
           </p>
         </motion.div>
 

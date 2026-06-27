@@ -11,10 +11,10 @@ export const Navbar = () => {
   const navLinks = [
     { name: t('nav.home'), href: '#hero' },
     { name: t('nav.painPoints'), href: '#pain-points' },
-    { name: '适配诊断', href: '#fit-check' },
-    { name: '交付闭环', href: '#delivery' },
+    { name: t('nav.fitCheck'), href: '#fit-check' },
+    { name: t('nav.delivery'), href: '#delivery' },
     { name: t('nav.cases'), href: '#cases' },
-    { name: '方法底座', href: '#architecture' },
+    { name: t('nav.methodBase'), href: '#architecture' },
   ]
 
   const toggleLanguage = () => {

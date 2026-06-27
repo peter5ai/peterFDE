@@ -5,7 +5,12 @@ import profileImg from '/profile.png'
 
 export const HeroSection = () => {
   const { t } = useTranslation()
-  const metrics = ['场景筛选', '流程重构', 'Agent 部署', '验收复盘']
+  const metrics = [
+    t('missionHero.metrics.0'),
+    t('missionHero.metrics.1'),
+    t('missionHero.metrics.2'),
+    t('missionHero.metrics.3'),
+  ]
 
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden bg-hero-glow pt-24 md:pt-28">
@@ -20,20 +25,20 @@ export const HeroSection = () => {
           >
             <div className="mb-6 md:mb-8 inline-flex items-center gap-2 border border-cyan/25 bg-cyan/10 px-4 py-2 text-sm font-semibold text-cyan">
               <BrainCircuit size={16} />
-              PeterAI 企业 AI 诊断与智能体落地
+              {t('missionHero.badge')}
             </div>
 
             <h1 className="mb-6 md:mb-8 text-4xl font-bold leading-[1.12] md:text-6xl lg:text-7xl">
-              找到最值得 AI 重做的流程
+              {t('missionHero.titlePart1')}
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-cyan">
-                把它跑成企业自己的工作系统
+                {t('missionHero.titleHighlight')}
               </span>
             </h1>
 
             <p className="mb-8 md:mb-10 max-w-2xl text-lg leading-8 text-text-muted md:text-xl">
-              不先卖工具，不先讲模型。先判断哪个流程高频、高痛、可衡量、风险可控，
+              {t('missionHero.descriptionLine1')}
               <br className="hidden md:block" />
-              再用智能体跑试点，把经验沉淀成 SOP、知识库和异常案例库。
+              {t('missionHero.descriptionLine2')}
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
@@ -47,7 +52,7 @@ export const HeroSection = () => {
                 href="#cases"
                 className="inline-flex h-12 items-center justify-center border border-white/15 px-6 text-sm font-semibold text-text transition hover:border-cyan/60 hover:text-cyan"
               >
-                查看证据链案例
+                {t('missionHero.secondaryCta')}
               </a>
             </div>
 
@@ -84,11 +89,9 @@ export const HeroSection = () => {
                 <div className="relative min-h-[320px] overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_18%,rgba(93,211,214,0.16),transparent_30%),linear-gradient(160deg,rgba(15,26,43,0.92),rgba(7,16,28,0.98))] md:min-h-[400px]">
                   <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:28px_28px] opacity-40" />
                   <div className="absolute inset-x-8 bottom-0 h-28 bg-cyan/10 blur-2xl" />
-                  <div className="absolute -right-10 top-8 h-32 w-32 border border-cyan/20" />
-                  <div className="absolute -left-8 bottom-16 h-24 w-24 border border-gold/20" />
                   <img
                     src={profileImg}
-                    alt="温泳扬 (Peter)"
+                    alt={t('missionHero.profileAlt')}
                     className="absolute bottom-[-18px] left-1/2 h-[112%] max-w-none -translate-x-1/2 object-contain md:bottom-[-26px] md:h-[118%]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
@@ -96,10 +99,10 @@ export const HeroSection = () => {
 
                 <div className="space-y-3 md:space-y-4">
                   {[
-                    ['01', '判断是否值得启动'],
-                    ['02', '重构输入、动作、标准和责任'],
-                    ['03', '部署智能体并跑真实工作流'],
-                    ['04', '沉淀 SOP、验收标准和异常案例'],
+                    ['01', t('missionHero.steps.0')],
+                    ['02', t('missionHero.steps.1')],
+                    ['03', t('missionHero.steps.2')],
+                    ['04', t('missionHero.steps.3')],
                   ].map(([step, label]) => (
                     <div key={step} className="border border-white/10 bg-background/70 p-3 md:p-4">
                       <div className="mb-3 flex items-center justify-between">

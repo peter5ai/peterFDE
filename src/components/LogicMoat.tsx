@@ -1,31 +1,22 @@
 import { motion } from 'framer-motion'
 import { Lock, Scale } from 'lucide-react'
-
-const principles = [
-  {
-    title: 'AI 替代动作，不替代责任',
-    desc: '目标、审核、纠错、追责和高风险判断必须有人负责，不能把责任甩给模型。',
-  },
-  {
-    title: '先定义验收，再配置工具',
-    desc: '没有人工基线、质量标准、错误率、接管机制和成本口径，Demo 再顺也不算交付。',
-  },
-  {
-    title: '失败必须进入知识复利',
-    desc: '每次误判、越权、返工和客户反馈，都要沉淀为异常案例、规则修订和下一轮测试样本。',
-  },
-]
-
-const moat = [
-  '流程诊断表',
-  '场景筛选五问',
-  '交付验收清单',
-  '异常案例库',
-  '企业知识库',
-  '可复用 Skill / SOP',
-]
+import { useTranslation } from 'react-i18next'
 
 export const LogicMoat = () => {
+  const { t } = useTranslation()
+  const principles = [0, 1, 2].map((index) => ({
+    title: t(`operatingPrinciples.items.${index}.title`),
+    desc: t(`operatingPrinciples.items.${index}.desc`),
+  }))
+  const moat = [
+    t('operatingPrinciples.moatItems.0'),
+    t('operatingPrinciples.moatItems.1'),
+    t('operatingPrinciples.moatItems.2'),
+    t('operatingPrinciples.moatItems.3'),
+    t('operatingPrinciples.moatItems.4'),
+    t('operatingPrinciples.moatItems.5'),
+  ]
+
   return (
     <section id="logic" className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/[0.03] to-transparent pointer-events-none" />
@@ -41,10 +32,10 @@ export const LogicMoat = () => {
             <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-cyan">Operating Principles</span>
             <div className="flex items-center gap-4 mb-4 md:mb-6">
               <Scale className="w-8 h-8 text-cyan" />
-              <h2 className="text-3xl md:text-4xl font-display font-bold">PeterAI 的交付原则</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-bold">{t('operatingPrinciples.title')}</h2>
             </div>
             <p className="text-lg text-text-muted mb-6 md:mb-10 leading-8">
-              企业 AI 改造不是把工具塞进组织，而是重新设计人机分工、责任边界和复盘机制。
+              {t('operatingPrinciples.description')}
             </p>
 
             <div className="space-y-3 md:space-y-5">
@@ -66,10 +57,10 @@ export const LogicMoat = () => {
           >
             <div className="flex items-center gap-4 mb-4 md:mb-6">
               <Lock className="w-8 h-8 text-gold" />
-              <h2 className="text-3xl md:text-4xl font-display font-bold">真正的护城河</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-bold">{t('operatingPrinciples.moatTitle')}</h2>
             </div>
             <p className="text-lg text-text-muted mb-6 md:mb-8 leading-8">
-              模型会变，工具会降价。PeterAI 要沉淀的是企业现场 Know-How：能被复用、验证和持续修订的工作系统。
+              {t('operatingPrinciples.moatDescription')}
             </p>
 
             <div className="grid gap-3 sm:grid-cols-2">
@@ -83,7 +74,7 @@ export const LogicMoat = () => {
 
             <div className="mt-5 md:mt-8 border border-cyan/20 bg-cyan/10 p-4 md:p-5">
               <p className="text-sm leading-7 text-text-muted">
-                目标不是让客户依赖 PeterAI 的人力，而是让客户拥有自己的 AI 工作法；PeterAI 则把每次交付升级为下一次交付的底座。
+                {t('operatingPrinciples.footer')}
               </p>
             </div>
           </motion.div>

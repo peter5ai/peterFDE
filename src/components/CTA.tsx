@@ -5,7 +5,12 @@ import qrCodeImg from '/qr-code.png'
 
 export const CTA = () => {
   const { t } = useTranslation()
-  const checks = ['最耗人的一个流程', '现在谁在做、怎么做', '希望改善的业务指标', '哪些结果必须人工审核']
+  const checks = [
+    t('missionCta.checks.0'),
+    t('missionCta.checks.1'),
+    t('missionCta.checks.2'),
+    t('missionCta.checks.3'),
+  ]
 
   return (
     <section id="cta" className="py-16 md:py-24 relative overflow-hidden bg-hero-glow">
@@ -22,13 +27,13 @@ export const CTA = () => {
               {t('cta.tag')}
             </span>
             <h2 className="mb-4 md:mb-6 text-4xl md:text-6xl font-display font-bold leading-tight">
-              扫码前，
+              {t('missionCta.titlePart1')}
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-cyan">
-                先想清楚一个流程
+                {t('missionCta.titleHighlight')}
               </span>
             </h2>
             <p className="mb-6 md:mb-8 max-w-3xl text-lg md:text-xl text-text-muted leading-8">
-              不需要先懂 AI。你只要告诉我，公司里哪个流程最耗人、最重复、最容易出错、最影响订单。我负责帮你拆流程、配智能体、跑试点、看数据。
+              {t('missionCta.description')}
             </p>
 
             <div className="grid gap-3 sm:grid-cols-2">
@@ -57,7 +62,7 @@ export const CTA = () => {
             </div>
 
             <p className="mb-5 md:mb-6 text-sm leading-7 text-text-muted">
-              这不是工具推荐会，而是一次流程诊断：判断是否值得启动、先做哪个小闭环、怎么验收、失败后如何人工接管和沉淀异常案例。
+              {t('missionCta.boxDesc')}
             </p>
 
             <div className="mx-auto aspect-square w-full max-w-[230px] overflow-hidden bg-white md:max-w-[252px]">
