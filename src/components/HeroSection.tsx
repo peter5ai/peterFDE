@@ -80,13 +80,18 @@ export const HeroSection = () => {
                 <ShieldCheck className="text-cyan" size={28} />
               </div>
 
-              <div className="grid gap-4 md:gap-5 pt-4 md:pt-5 md:grid-cols-[0.95fr_1.05fr]">
-                <div className="relative min-h-[360px] overflow-hidden bg-gradient-to-b from-white/10 to-white/[0.02]">
+              <div className="grid gap-4 md:gap-5 pt-4 md:pt-5 md:grid-cols-[1.05fr_0.95fr]">
+                <div className="relative min-h-[320px] overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_18%,rgba(93,211,214,0.16),transparent_30%),linear-gradient(160deg,rgba(15,26,43,0.92),rgba(7,16,28,0.98))] md:min-h-[400px]">
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:28px_28px] opacity-40" />
+                  <div className="absolute inset-x-8 bottom-0 h-28 bg-cyan/10 blur-2xl" />
+                  <div className="absolute -right-10 top-8 h-32 w-32 border border-cyan/20" />
+                  <div className="absolute -left-8 bottom-16 h-24 w-24 border border-gold/20" />
                   <img
                     src={profileImg}
                     alt="温泳扬 (Peter)"
-                    className="absolute bottom-0 left-1/2 h-[92%] max-w-none -translate-x-1/2 object-contain"
+                    className="absolute bottom-[-18px] left-1/2 h-[112%] max-w-none -translate-x-1/2 object-contain md:bottom-[-26px] md:h-[118%]"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
                 </div>
 
                 <div className="space-y-3 md:space-y-4">
