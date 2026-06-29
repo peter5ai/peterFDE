@@ -56,25 +56,29 @@ export const OrgChart = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: sectorIndex * 0.1 }}
-              className="border border-white/10 bg-surface/65 p-4 md:p-8"
+              className="glass-panel rounded-[1.5rem] p-4 md:p-8"
             >
               <div className="mb-5 md:mb-8 flex items-start justify-between gap-4 border-b border-white/10 pb-4 md:pb-6">
                 <div>
                   <h3 className="text-2xl font-display font-bold">{sector.title}</h3>
                   <p className="mt-2 text-sm text-text-muted">Knowledge Base + Agent Team</p>
                 </div>
-                <Brain className="shrink-0 text-gold" size={32} />
+                <span className="glass-icon glass-icon-gold glass-icon-lg">
+                  <Brain size={30} />
+                </span>
               </div>
 
-              <div className="mb-4 md:mb-6 border border-gold/25 bg-gold/5 p-4 md:p-5">
+              <div className="glass-panel-soft mb-4 rounded-3xl p-4 md:mb-6 md:p-5">
                 <div className="mb-2 text-sm font-bold uppercase tracking-widest text-gold">{sector.brain}</div>
                 <p className="text-sm leading-6 text-text-muted">{sector.brainDesc}</p>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-3">
                 {sector.agents.map(([Icon, title, desc]) => (
-                  <div key={title as string} className="min-h-[128px] md:min-h-[150px] border border-white/10 bg-background/70 p-3 md:p-4">
-                    <Icon className="mb-3 md:mb-4 text-cyan" size={24} />
+                  <div key={title as string} className="glass-panel-soft min-h-[128px] rounded-3xl p-3 md:min-h-[150px] md:p-4">
+                    <span className="glass-icon glass-icon-cyan glass-icon-md mb-3 md:mb-4">
+                      <Icon size={24} />
+                    </span>
                     <h4 className="mb-2 text-sm font-bold leading-snug">{title as string}</h4>
                     <p className="text-xs leading-5 text-text-muted">{desc as string}</p>
                   </div>

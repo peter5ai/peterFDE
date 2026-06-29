@@ -16,19 +16,19 @@ export const FitCheck = () => {
       icon: CheckCircle2,
       title: t('fitCheck.outcomes.0.title'),
       desc: t('fitCheck.outcomes.0.desc'),
-      tone: 'text-green-400 border-green-400/20 bg-green-950/10',
+      tone: 'glass-icon-cyan',
     },
     {
       icon: CircleDashed,
       title: t('fitCheck.outcomes.1.title'),
       desc: t('fitCheck.outcomes.1.desc'),
-      tone: 'text-gold border-gold/25 bg-gold/5',
+      tone: 'glass-icon-gold',
     },
     {
       icon: XCircle,
       title: t('fitCheck.outcomes.2.title'),
       desc: t('fitCheck.outcomes.2.desc'),
-      tone: 'text-red-400 border-red-400/20 bg-red-950/10',
+      tone: 'glass-icon-danger',
     },
   ]
 
@@ -56,7 +56,7 @@ export const FitCheck = () => {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="border border-white/10 bg-surface/70 p-4 md:p-6"
+              className="glass-panel rounded-[1.5rem] p-4 md:p-6"
             >
               <div className="mb-4 md:mb-5 flex items-center justify-between">
                 <h3 className="text-xl font-bold">{t('fitCheck.questionTitle')}</h3>
@@ -64,8 +64,10 @@ export const FitCheck = () => {
               </div>
               <div className="grid gap-2 md:gap-3 md:grid-cols-5">
                 {questions.map((question, index) => (
-                  <div key={question} className="min-h-[112px] md:min-h-[132px] border border-white/10 bg-background/65 p-3 md:p-4">
-                    <div className="mb-3 md:mb-4 font-display text-2xl font-bold text-gold">{String(index + 1).padStart(2, '0')}</div>
+                  <div key={question} className="glass-panel-soft min-h-[112px] rounded-3xl p-3 md:min-h-[132px] md:p-4">
+                    <div className="glass-icon glass-icon-gold mb-3 h-11 w-11 rounded-2xl font-display text-base font-bold md:mb-4">
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
                     <p className="text-sm leading-6 text-text-muted">{question}</p>
                   </div>
                 ))}
@@ -82,9 +84,11 @@ export const FitCheck = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.08 }}
-                    className={`border p-4 md:p-5 ${item.tone}`}
+                    className="glass-panel rounded-[1.5rem] p-4 md:p-5"
                   >
-                    <Icon className="mb-3 md:mb-4" size={24} />
+                    <span className={`glass-icon ${item.tone} glass-icon-md mb-3 md:mb-4`}>
+                      <Icon size={24} />
+                    </span>
                     <h4 className="mb-2 font-bold text-text">{item.title}</h4>
                     <p className="text-sm leading-6 text-text-muted">{item.desc}</p>
                   </motion.div>

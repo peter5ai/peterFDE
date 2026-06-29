@@ -39,15 +39,19 @@ export const PainPoints = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.06 }}
-              className="grid gap-2 md:gap-3 border border-white/10 bg-surface/70 p-3 md:grid-cols-[1fr_auto_1fr] md:items-center md:p-5"
+              className="glass-panel grid gap-2 rounded-[1.5rem] p-3 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-3 md:p-5"
             >
-              <div className="flex items-start gap-3 border border-red-400/15 bg-red-950/10 p-3 md:p-4">
-                <XCircle className="mt-0.5 shrink-0 text-red-400" size={20} />
+              <div className="glass-panel-soft flex items-start gap-3 rounded-3xl p-3 md:p-4">
+                <span className="glass-icon glass-icon-danger h-10 w-10 rounded-2xl">
+                  <XCircle size={18} />
+                </span>
                 <p className="font-semibold text-text-muted">{wrong}</p>
               </div>
               <div className="hidden h-px w-10 bg-white/20 md:block" />
-              <div className="flex items-start gap-3 border border-green-400/15 bg-green-950/10 p-3 md:p-4">
-                <CheckCircle2 className="mt-0.5 shrink-0 text-green-400" size={20} />
+              <div className="glass-panel-soft flex items-start gap-3 rounded-3xl p-3 md:p-4">
+                <span className="glass-icon glass-icon-cyan h-10 w-10 rounded-2xl">
+                  <CheckCircle2 size={18} />
+                </span>
                 <p className="font-semibold text-text">{right}</p>
               </div>
             </motion.div>

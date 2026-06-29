@@ -49,14 +49,14 @@ export const Cases = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
-              className={`border p-4 md:p-8 transition hover:-translate-y-1 ${
-                item.featured ? 'border-gold/30 bg-gold/5 hover:border-gold/60' : 'border-white/10 bg-surface/80 hover:border-cyan/35'
+              className={`glass-panel rounded-[1.5rem] p-4 transition hover:-translate-y-1 md:p-8 ${
+                item.featured ? 'border-gold/30 hover:border-gold/60' : 'hover:border-cyan/35'
               }`}
             >
               <div className="grid gap-4 md:gap-5 lg:grid-cols-[0.75fr_1.25fr]">
                 <div>
                   {item.featured && (
-                    <span className="mb-3 md:mb-4 inline-block border border-gold/20 bg-gold/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-gold">
+                    <span className="glass-chip mb-3 inline-block px-3 py-1 text-xs font-bold uppercase tracking-widest text-gold md:mb-4">
                       {t('proofCases.featuredTag')}
                     </span>
                   )}
@@ -65,10 +65,12 @@ export const Cases = () => {
                 </div>
                 <div className="grid gap-3 md:gap-4 md:grid-cols-4">
                   {labels.map(([key, Icon]) => (
-                    <div key={key} className="border border-white/10 bg-background/60 p-3 md:p-4">
+                    <div key={key} className="glass-panel-soft rounded-3xl p-3 md:p-4">
                       <div className="mb-3 md:mb-4 flex items-center justify-between">
                         <span className="text-xs font-bold uppercase tracking-widest text-text-muted">{t(`proofCases.labels.${key}`)}</span>
-                        <Icon size={18} className={key === 'boundary' ? 'text-gold' : 'text-cyan'} />
+                        <span className={`glass-icon h-9 w-9 rounded-2xl ${key === 'boundary' ? 'glass-icon-gold' : 'glass-icon-cyan'}`}>
+                          <Icon size={17} />
+                        </span>
                       </div>
                       <p className="text-sm leading-6 text-text-muted">{item[key]}</p>
                     </div>

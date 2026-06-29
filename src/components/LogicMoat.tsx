@@ -27,11 +27,13 @@ export const LogicMoat = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col justify-center border border-white/10 bg-surface/55 p-5 md:p-10"
+            className="glass-panel flex flex-col justify-center rounded-[1.5rem] p-5 md:p-10"
           >
             <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-cyan">Operating Principles</span>
             <div className="flex items-center gap-4 mb-4 md:mb-6">
-              <Scale className="w-8 h-8 text-cyan" />
+              <span className="glass-icon glass-icon-cyan glass-icon-md">
+                <Scale size={24} />
+              </span>
               <h2 className="text-3xl md:text-4xl font-display font-bold">{t('operatingPrinciples.title')}</h2>
             </div>
             <p className="text-lg text-text-muted mb-6 md:mb-10 leading-8">
@@ -40,8 +42,8 @@ export const LogicMoat = () => {
 
             <div className="space-y-3 md:space-y-5">
               {principles.map((item, index) => (
-                <div key={item.title} className="border-l-2 border-gold/50 bg-background/50 py-2 pl-4 md:pl-5">
-                  <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-gold">{String(index + 1).padStart(2, '0')}</span>
+                <div key={item.title} className="glass-panel-soft rounded-3xl px-4 py-3 md:px-5">
+                  <span className="mb-2 inline-flex rounded-full bg-gold/10 px-2 py-1 text-xs font-bold uppercase tracking-widest text-gold">{String(index + 1).padStart(2, '0')}</span>
                   <h3 className="text-lg font-bold mb-2 text-white/90">{item.title}</h3>
                   <p className="text-sm leading-6 text-text-muted">{item.desc}</p>
                 </div>
@@ -53,10 +55,12 @@ export const LogicMoat = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-5 md:p-10 border border-gold/20 bg-surface/80 backdrop-blur-md relative"
+            className="glass-panel relative rounded-[1.5rem] border-gold/20 p-5 md:p-10"
           >
             <div className="flex items-center gap-4 mb-4 md:mb-6">
-              <Lock className="w-8 h-8 text-gold" />
+              <span className="glass-icon glass-icon-gold glass-icon-md">
+                <Lock size={24} />
+              </span>
               <h2 className="text-3xl md:text-4xl font-display font-bold">{t('operatingPrinciples.moatTitle')}</h2>
             </div>
             <p className="text-lg text-text-muted mb-6 md:mb-8 leading-8">
@@ -65,14 +69,14 @@ export const LogicMoat = () => {
 
             <div className="grid gap-3 sm:grid-cols-2">
               {moat.map((item) => (
-                <div key={item} className="border border-white/10 bg-background/70 px-3 py-3 md:px-4 md:py-4 text-sm font-semibold text-text">
+                <div key={item} className="glass-panel-soft rounded-2xl px-3 py-3 text-sm font-semibold text-text md:px-4 md:py-4">
                   <span className="mr-2 text-gold">▸</span>
                   {item}
                 </div>
               ))}
             </div>
 
-            <div className="mt-5 md:mt-8 border border-cyan/20 bg-cyan/10 p-4 md:p-5">
+            <div className="glass-chip mt-5 p-4 md:mt-8 md:p-5">
               <p className="text-sm leading-7 text-text-muted">
                 {t('operatingPrinciples.footer')}
               </p>

@@ -65,11 +65,13 @@ export const Timeline = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: index * 0.08 }}
-                className="group min-h-[220px] md:min-h-[280px] border border-white/10 bg-surface/65 p-4 md:p-5 transition hover:-translate-y-1 hover:border-cyan/40 hover:bg-surfaceLight/80"
+                className="glass-panel group min-h-[220px] rounded-[1.5rem] p-4 transition hover:-translate-y-1 hover:border-cyan/40 md:min-h-[280px] md:p-5"
               >
                 <div className="mb-5 md:mb-8 flex items-center justify-between">
                   <span className="text-sm font-semibold text-gold">{event.period}</span>
-                  <Icon className="text-cyan/70 group-hover:text-cyan" size={22} />
+                  <span className="glass-icon glass-icon-cyan h-11 w-11 rounded-2xl">
+                    <Icon size={21} />
+                  </span>
                 </div>
                 <h3 className="mb-4 text-xl font-display font-bold leading-snug">{event.title}</h3>
                 <p className="text-sm leading-7 text-text-muted">{event.description}</p>
@@ -82,11 +84,11 @@ export const Timeline = () => {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-5 md:mt-8 grid gap-3 md:gap-4 border border-gold/20 bg-gold/5 p-4 md:p-6 md:grid-cols-4"
+          className="glass-panel mt-5 grid gap-3 rounded-[1.5rem] p-4 md:mt-8 md:grid-cols-4 md:gap-4 md:p-6"
         >
           {[t('about.venn.circle1'), t('about.venn.circle2'), t('about.venn.circle3'), t('about.venn.center').replace('<br/>', ' ')].map((item, index) => (
             <div key={item} className="flex items-center gap-3">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-gold/30 text-xs font-bold text-gold">
+              <span className="glass-icon glass-icon-gold flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl text-xs font-bold">
                 {String(index + 1).padStart(2, '0')}
               </span>
               <span className="text-sm font-semibold text-text">{item}</span>

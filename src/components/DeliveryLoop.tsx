@@ -42,10 +42,12 @@ export const DeliveryLoop = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.06 }}
-                className="min-h-[210px] md:min-h-[250px] border border-white/10 bg-surface/70 p-4 md:p-6 transition hover:border-cyan/35 hover:bg-surfaceLight/70"
+                className="glass-panel min-h-[210px] rounded-[1.5rem] p-4 transition hover:-translate-y-1 hover:border-cyan/35 md:min-h-[250px] md:p-6"
               >
                 <div className="mb-5 md:mb-8 flex items-center justify-between">
-                  <Icon className="text-cyan" size={28} />
+                  <span className="glass-icon glass-icon-cyan glass-icon-lg">
+                    <Icon size={28} />
+                  </span>
                   <span className="font-display text-3xl font-bold text-gold/80">{String(index + 1).padStart(2, '0')}</span>
                 </div>
                 <h3 className="mb-4 md:mb-5 text-2xl font-bold">{step.title}</h3>
