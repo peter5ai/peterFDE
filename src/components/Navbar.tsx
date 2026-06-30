@@ -36,23 +36,27 @@ export const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-background/88 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20' : 'bg-transparent'
+        className={`fixed top-2 left-0 right-0 z-50 px-3 transition-all duration-300 md:px-5 ${
+          isScrolled ? 'translate-y-0' : 'translate-y-0'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+        <div className={`mx-auto flex h-20 max-w-[1510px] items-center justify-between rounded-t-2xl border border-white/10 px-6 md:px-8 lg:px-10 ${
+          isScrolled ? 'bg-background/88 shadow-lg shadow-black/20 backdrop-blur-xl' : 'bg-[#06101f]/35 backdrop-blur-sm'
+        }`}>
           <a href="#hero" className="font-display font-bold text-xl tracking-wider text-text flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center border border-gold/35 bg-gold/10 text-sm text-gold">P</span>
-            <span>PETER <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-cyan">AI</span></span>
+            <span className="grid h-9 w-9 place-items-center rounded border border-gold/35 bg-gold/10 text-sm text-gold shadow-inner shadow-gold/10">P</span>
+            <span className="text-2xl">PETER <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-cyan">AI</span></span>
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-5">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-text-muted hover:text-cyan transition-colors"
+                className={`relative py-2 text-sm font-medium transition-colors hover:text-cyan ${
+                  link.href === '#hero' ? 'text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-gold' : 'text-text-muted'
+                }`}
               >
                 {link.name}
               </a>
@@ -67,7 +71,7 @@ export const Navbar = () => {
             </button>
             <a
               href="#cta"
-              className="px-5 py-2.5 text-sm font-bold bg-gold text-ink hover:bg-gold-light transition-colors ml-2"
+              className="ml-2 rounded-md bg-gold px-7 py-3 text-sm font-bold text-ink shadow-lg shadow-gold/15 transition-colors hover:bg-gold-light"
             >
               {t('nav.getDiagnosis')}
             </a>

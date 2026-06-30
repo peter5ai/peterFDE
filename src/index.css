@@ -141,6 +141,134 @@ html {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
     backdrop-filter: blur(14px);
   }
+
+  .hero-dashboard {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(164, 201, 255, 0.18);
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 72% 30%, rgba(29, 180, 220, 0.2), transparent 24%),
+      radial-gradient(circle at 34% 10%, rgba(224, 177, 91, 0.08), transparent 26%),
+      linear-gradient(135deg, rgba(5, 13, 28, 0.98), rgba(5, 17, 34, 0.96) 48%, rgba(4, 13, 28, 0.98));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 28px 70px rgba(0, 0, 0, 0.26);
+  }
+
+  .hero-dashboard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(rgba(93, 211, 214, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(93, 211, 214, 0.03) 1px, transparent 1px);
+    background-size: 38px 38px;
+    mask-image: radial-gradient(circle at 68% 36%, black, transparent 58%);
+    pointer-events: none;
+  }
+
+  .hero-dashboard::after {
+    content: "";
+    position: absolute;
+    inset: auto 10% -28% 42%;
+    height: 44%;
+    background: radial-gradient(ellipse at center, rgba(69, 204, 255, 0.24), transparent 62%);
+    filter: blur(18px);
+    pointer-events: none;
+  }
+
+  .holo-card {
+    border: 1px solid rgba(117, 221, 255, 0.2);
+    background:
+      linear-gradient(145deg, rgba(92, 217, 255, 0.14), rgba(12, 27, 48, 0.72) 48%, rgba(9, 18, 34, 0.88)),
+      rgba(8, 18, 35, 0.72);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      0 16px 40px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(18px);
+  }
+
+  .holo-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(97, 230, 255, 0.54);
+    border-radius: 20px;
+    color: #66F1FF;
+    background:
+      radial-gradient(circle at 24% 18%, rgba(255, 255, 255, 0.68), transparent 15%),
+      radial-gradient(circle at 78% 82%, rgba(224, 177, 91, 0.8), transparent 30%),
+      linear-gradient(145deg, rgba(91, 226, 255, 0.28), rgba(8, 31, 52, 0.86) 54%, rgba(224, 177, 91, 0.18));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.52),
+      inset 0 -20px 34px rgba(2, 10, 22, 0.32),
+      0 0 24px rgba(86, 229, 255, 0.24),
+      10px 14px 28px rgba(0, 0, 0, 0.28),
+      10px 10px 30px rgba(224, 177, 91, 0.2);
+    overflow: hidden;
+  }
+
+  .holo-icon::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: inherit;
+    background: linear-gradient(140deg, rgba(255, 255, 255, 0.24), transparent 38%);
+    pointer-events: none;
+  }
+
+  .portrait-stage {
+    position: relative;
+    min-height: 430px;
+  }
+
+  .portrait-stage::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    width: 86%;
+    height: 80px;
+    transform: translateX(-50%);
+    border: 1px solid rgba(65, 207, 255, 0.45);
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(73, 211, 255, 0.22), transparent 62%);
+    box-shadow:
+      0 0 22px rgba(76, 218, 255, 0.38),
+      inset 0 0 26px rgba(73, 211, 255, 0.18);
+  }
+
+  .portrait-orbit {
+    position: absolute;
+    left: 50%;
+    bottom: 88px;
+    width: 92%;
+    height: 120px;
+    transform: translateX(-50%) rotate(-3deg);
+    border: 1px solid rgba(75, 214, 255, 0.42);
+    border-top-color: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .stat-float {
+    border: 1px solid rgba(105, 220, 255, 0.44);
+    border-radius: 10px;
+    background:
+      linear-gradient(145deg, rgba(94, 218, 255, 0.18), rgba(10, 26, 47, 0.76)),
+      rgba(7, 17, 32, 0.8);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 18px 34px rgba(0, 0, 0, 0.28),
+      0 0 22px rgba(73, 211, 255, 0.16);
+    backdrop-filter: blur(18px);
+  }
+
+  .metric-rule {
+    background: linear-gradient(90deg, transparent, rgba(224, 177, 91, 0.32), transparent);
+  }
 }
 
 /* Custom Scrollbar for dark theme */

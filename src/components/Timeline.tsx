@@ -46,10 +46,12 @@ export const Timeline = () => {
         >
           <div>
             <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-cyan">Why Peter</span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold leading-tight">
+            <h2 className="font-display text-3xl font-bold leading-[1.12] md:text-[2.85rem] lg:text-[3.1rem] xl:text-[3.35rem]">
               {t('about.titlePart1')}
               <br />
-              <span className="text-gold">{t('about.titleHighlight')}</span>
+              <span className="whitespace-nowrap bg-gradient-to-r from-gold-light via-gold to-cyan bg-clip-text text-transparent">
+                {t('about.titleHighlight')}
+              </span>
             </h2>
           </div>
           <p className="self-end text-lg leading-8 text-text-muted">{t('about.subtitle')}</p>

@@ -73,7 +73,7 @@ export const zh = {
     },
     about: {
       titlePart1: "为什么我能成为企业老板的",
-      titleHighlight: "“AI 架构师”？",
+      titleHighlight: "“AI 智能体架构师”？",
       subtitle: "15年认知进化史：从底层逻辑到宏观洞察，再到AI落地。",
       timeline: {
         event1: { period: "理工科起步", title: "底层逻辑构建", desc: "研究脑科学与认知心理学，破解“高效学习与记忆系统”。" },
@@ -86,7 +86,7 @@ export const zh = {
         circle1: "脑科学与学习",
         circle2: "商业与金融",
         circle3: "AI 技术架构",
-        center: "懂生意的<br/>AI 架构师"
+        center: "懂生意的<br/>AI 智能体架构师"
       }
     },
     painPoints: {
