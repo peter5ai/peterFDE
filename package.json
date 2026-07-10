@@ -12,8 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@fontsource/inter": "^5.2.8",
-    "@fontsource/space-grotesk": "^5.2.10",
+    "@fontsource/noto-sans-sc": "^5.2.9",
     "clsx": "^2.1.1",
     "framer-motion": "^12.40.0",
     "i18next": "^26.3.0",

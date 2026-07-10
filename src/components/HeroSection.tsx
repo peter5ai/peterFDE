@@ -39,16 +39,16 @@ export const HeroSection = () => {
 
   const proofMetrics = isEnglish
     ? [
-        ['10+', 'Industries covered'],
-        ['200+', 'Workflow diagnoses'],
-        ['95%+', 'Delivery satisfaction'],
-        ['3 weeks', 'Average value proof cycle'],
+        ['15+ years', 'Cross-domain practice'],
+        ['FDE method', 'Proven delivery framework'],
+        ['100% client-owned', 'Assets stay with you'],
+        ['No lock-in', 'You control the tools'],
       ]
     : [
-        ['10+', '行业深度覆盖'],
-        ['200+', '建立流程诊断'],
-        ['95%+', '项目交付满意度'],
-        ['3周', '平均价值验证周期'],
+        ['15年+', '跨领域商业实践'],
+        ['FDE 方法', '验证过的交付体系'],
+        ['100% 客户自有', '资产归你所有'],
+        ['无工具绑定', '你掌控一切'],
       ]
 
   const statCards = isEnglish

@@ -10,11 +10,12 @@ export const Navbar = () => {
 
   const navLinks = [
     { name: t('nav.home'), href: '#hero' },
+    { name: t('nav.about'), href: '#about' },
     { name: t('nav.painPoints'), href: '#pain-points' },
     { name: t('nav.fitCheck'), href: '#fit-check' },
     { name: t('nav.delivery'), href: '#delivery' },
     { name: t('nav.cases'), href: '#cases' },
-    { name: t('nav.methodBase'), href: '#architecture' },
+    { name: t('nav.logic'), href: '#logic' },
   ]
 
   const toggleLanguage = () => {

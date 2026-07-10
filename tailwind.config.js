@@ -25,8 +25,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Microsoft YaHei"', 'sans-serif'],
-        display: ['"Microsoft YaHei"', 'sans-serif'],
+        sans: ['"Noto Sans SC"', 'system-ui', 'sans-serif'],
+        display: ['"Noto Sans SC"', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
