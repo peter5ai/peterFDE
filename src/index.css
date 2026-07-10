@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-background text-text font-sans antialiased overflow-x-hidden selection:bg-gold selection:text-background;
+    @apply bg-background text-text font-sans font-bold antialiased overflow-x-hidden selection:bg-gold selection:text-background;
     background:
       linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
@@ -13,14 +13,19 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight;
+    @apply font-display font-black tracking-tight;
+  }
+
+  strong,
+  b {
+    @apply font-black;
   }
 }
 
 :root {
   font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 700;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
