@@ -1,3 +1,5 @@
+import { englishPages } from './site.en'
+
 export const SITE_ORIGIN = 'https://www.peterai.cloud'
 export const COMPANY_NAME = '中山市彼得人工智能科技有限公司'
 export const BRAND_NAME = 'PeterAI'
@@ -381,7 +383,11 @@ export const pages: PageData[] = [
   },
 ]
 
-export const PUBLIC_ROUTES = pages.map((page) => page.path)
+export type SiteLanguage = 'zh' | 'en'
+
+export const allPages = [...pages, ...englishPages]
+
+export const PUBLIC_ROUTES = allPages.map((page) => page.path)
 
 export const normalizePath = (pathname: string) => {
   const clean = pathname.split('?')[0].split('#')[0]
@@ -389,9 +395,24 @@ export const normalizePath = (pathname: string) => {
   return clean.endsWith('/') ? clean : `${clean}/`
 }
 
+export const getRouteLanguage = (pathname: string): SiteLanguage =>
+  normalizePath(pathname).startsWith('/en/') ? 'en' : 'zh'
+
+export const getLocalizedPath = (pathname: string, language: SiteLanguage) => {
+  const normalized = normalizePath(pathname)
+
+  if (language === 'en') {
+    if (normalized.startsWith('/en/')) return normalized
+    return normalized === '/' ? '/en/' : `/en${normalized}`
+  }
+
+  if (normalized === '/en/') return '/'
+  return normalized.startsWith('/en/') ? normalized.slice(3) : normalized
+}
+
 export const getPageByPath = (pathname: string) => {
   const normalized = normalizePath(pathname)
-  return pages.find((page) => page.path === normalized)
+  return allPages.find((page) => page.path === normalized)
 }
 
 export const getPageTitle = (path: string) => getPageByPath(path)?.title ?? BRAND_NAME

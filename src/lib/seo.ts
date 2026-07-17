@@ -2,7 +2,9 @@ import {
   BRAND_NAME,
   COMPANY_NAME,
   SITE_ORIGIN,
+  getLocalizedPath,
   getPageByPath,
+  getRouteLanguage,
   type FaqItem,
   type PageData,
 } from '../content/site'
@@ -31,22 +33,27 @@ const pageType = (page: PageData) => {
 
 export const getStructuredData = (page: PageData) => {
   const canonical = `${SITE_ORIGIN}${page.path}`
+  const language = getRouteLanguage(page.path)
+  const inLanguage = language === 'en' ? 'en' : 'zh-CN'
+  const websiteId = language === 'en' ? `${SITE_ORIGIN}/en/#website` : `${SITE_ORIGIN}/#website`
   const organization = {
     '@type': ['Organization', 'LocalBusiness'],
     '@id': `${SITE_ORIGIN}/#organization`,
-    name: COMPANY_NAME,
+    name: language === 'en' ? 'Zhongshan Peter Artificial Intelligence Technology Co., Ltd.' : COMPANY_NAME,
     alternateName: BRAND_NAME,
     url: `${SITE_ORIGIN}/`,
-    logo: `${SITE_ORIGIN}/favicon.svg`,
+    logo: `${SITE_ORIGIN}/favicon.png`,
     image: `${SITE_ORIGIN}/profile.png`,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: '中山市',
-      addressRegion: '广东省',
+      addressLocality: language === 'en' ? 'Zhongshan' : '中山市',
+      addressRegion: language === 'en' ? 'Guangdong' : '广东省',
       addressCountry: 'CN',
     },
-    areaServed: '中国',
-    description: '面向中小企业 CEO 的企业 AI 咨询、AI Agent 与工作流落地、企业知识库建设服务商。',
+    areaServed: language === 'en' ? 'China' : '中国',
+    description: language === 'en'
+      ? 'Enterprise AI consulting, Agent implementation, and knowledge-system services for SME owners and management teams.'
+      : '面向中小企业 CEO 的企业 AI 咨询、AI Agent 与工作流落地、企业知识库建设服务商。',
   }
 
   const graph: Record<string, unknown>[] = [organization]
@@ -54,10 +61,10 @@ export const getStructuredData = (page: PageData) => {
   if (page.kind === 'home') {
     graph.push({
       '@type': 'WebSite',
-      '@id': `${SITE_ORIGIN}/#website`,
-      url: `${SITE_ORIGIN}/`,
+      '@id': websiteId,
+      url: canonical,
       name: BRAND_NAME,
-      inLanguage: 'zh-CN',
+      inLanguage,
       publisher: { '@id': `${SITE_ORIGIN}/#organization` },
     })
   } else {
@@ -67,8 +74,8 @@ export const getStructuredData = (page: PageData) => {
       url: canonical,
       name: page.title,
       description: page.description,
-      inLanguage: 'zh-CN',
-      isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+      inLanguage,
+      isPartOf: { '@id': websiteId },
       about: { '@id': `${SITE_ORIGIN}/#organization` },
     })
   }
@@ -80,18 +87,23 @@ export const getStructuredData = (page: PageData) => {
       description: page.description,
       url: canonical,
       provider: { '@id': `${SITE_ORIGIN}/#organization` },
-      areaServed: page.kind === 'industry' ? '广东省中山市' : '中国',
-      audience: { '@type': 'BusinessAudience', audienceType: '中小企业 CEO 与管理团队' },
+      areaServed: language === 'en'
+        ? (page.kind === 'industry' ? 'Zhongshan, Guangdong, China' : 'China')
+        : (page.kind === 'industry' ? '广东省中山市' : '中国'),
+      audience: {
+        '@type': 'BusinessAudience',
+        audienceType: language === 'en' ? 'SME owners and management teams' : '中小企业 CEO 与管理团队',
+      },
     })
   }
 
   if (page.kind === 'about') {
     graph.push({
       '@type': 'Person',
-      name: '温泳扬',
+      name: language === 'en' ? 'Peter Wen' : '温泳扬',
       alternateName: 'Peter',
       image: `${SITE_ORIGIN}/profile.png`,
-      jobTitle: '企业 AI 咨询与智能体落地顾问',
+      jobTitle: language === 'en' ? 'Enterprise AI and Agent Implementation Consultant' : '企业 AI 咨询与智能体落地顾问',
       worksFor: { '@id': `${SITE_ORIGIN}/#organization` },
     })
   }
@@ -104,6 +116,9 @@ export const getStructuredData = (page: PageData) => {
 export const buildHead = (pathname: string) => {
   const page = getPageByPath(pathname) ?? getPageByPath('/')!
   const canonical = `${SITE_ORIGIN}${page.path}`
+  const language = getRouteLanguage(page.path)
+  const zhPath = getLocalizedPath(page.path, 'zh')
+  const enPath = getLocalizedPath(page.path, 'en')
   const title = escapeHtml(page.metaTitle)
   const description = escapeHtml(page.description)
   const structuredData = JSON.stringify(getStructuredData(page)).replace(/</g, '\\u003c')
@@ -112,13 +127,16 @@ export const buildHead = (pathname: string) => {
     `<title>${title}</title>`,
     `<meta name="description" content="${description}" />`,
     `<link rel="canonical" href="${canonical}" />`,
+    `<link rel="alternate" hreflang="zh-CN" href="${SITE_ORIGIN}${zhPath}" />`,
+    `<link rel="alternate" hreflang="en" href="${SITE_ORIGIN}${enPath}" />`,
+    `<link rel="alternate" hreflang="x-default" href="${SITE_ORIGIN}${zhPath}" />`,
     '<meta name="robots" content="index, follow, max-image-preview:large" />',
     `<meta property="og:title" content="${title}" />`,
     `<meta property="og:description" content="${description}" />`,
     `<meta property="og:url" content="${canonical}" />`,
     '<meta property="og:type" content="website" />',
     '<meta property="og:site_name" content="PeterAI" />',
-    '<meta property="og:locale" content="zh_CN" />',
+    `<meta property="og:locale" content="${language === 'en' ? 'en_US' : 'zh_CN'}" />`,
     `<meta property="og:image" content="${SITE_ORIGIN}/profile.png" />`,
     '<meta name="twitter:card" content="summary_large_image" />',
     `<script type="application/ld+json">${structuredData}</script>`,

@@ -1,10 +1,16 @@
-export function NotFoundPage() {
+import { getLocalizedPath, getRouteLanguage } from '../content/site'
+import { getUiCopy } from '../content/ui'
+
+export function NotFoundPage({ pathname = '/' }: { pathname?: string }) {
+  const language = getRouteLanguage(pathname)
+  const ui = getUiCopy(language)
+
   return (
     <main className="not-found">
       <span className="eyebrow">404</span>
-      <h1>这个页面不存在</h1>
-      <p>你可以返回 PeterAI 首页，或查看企业 AI 咨询服务。</p>
-      <a className="button button-primary" href="/">返回首页</a>
+      <h1>{ui.notFound.title}</h1>
+      <p>{ui.notFound.description}</p>
+      <a className="button button-primary" href={getLocalizedPath('/', language)}>{ui.notFound.action}</a>
     </main>
   )
 }

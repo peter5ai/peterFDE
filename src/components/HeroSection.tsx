@@ -10,6 +10,7 @@ import {
   Filter,
   GitFork,
   Quote,
+  SearchCheck,
   ShieldCheck,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -18,23 +19,31 @@ import profileImg from '/profile.png'
 export const HeroSection = () => {
   const { t, i18n } = useTranslation()
   const isEnglish = i18n.language?.startsWith('en')
+  const companyName = isEnglish
+    ? 'Zhongshan Peter Artificial Intelligence Technology Co., Ltd.'
+    : '中山市彼得人工智能科技有限公司'
+  const serviceBoundary = isEnglish
+    ? 'Enterprise AI consulting, AI Agent implementation, and enterprise knowledge systems for SMEs. PeterAI does not promise operating results on a client\'s behalf.'
+    : '面向中小企业提供企业 AI 咨询、AI Agent 落地和企业知识库建设；不替客户承诺经营结果。'
 
   const featureItems = isEnglish
     ? [
         { icon: Filter, title: `FDE ${t('missionHero.metrics.0')}`, desc: 'Prioritize frequent, painful workflows and verify ROI fast' },
         { icon: GitFork, title: t('missionHero.metrics.1'), desc: 'Standardize key nodes and build executable SOPs' },
+        { icon: BookOpen, title: 'Enterprise Knowledge Base', desc: 'Turn operating experience into a shared enterprise knowledge foundation' },
         { icon: Bot, title: 'Agent Deployment', desc: 'Launch pilots quickly and let people work with agents' },
-        { icon: ClipboardCheck, title: t('missionHero.metrics.3'), desc: 'Quantify outcomes and keep improving' },
+        { icon: SearchCheck, title: 'GEO Brand Building', desc: 'Build credible content and evidence that AI search can understand and cite' },
         { icon: ShieldCheck, title: 'Risk Control', desc: 'Keep permissions, review, and compliance under control' },
-        { icon: BookOpen, title: 'Knowledge Base', desc: 'Capture experience assets and build company memory' },
+        { icon: ClipboardCheck, title: t('missionHero.metrics.3'), desc: 'Quantify outcomes and keep improving' },
       ]
     : [
         { icon: Filter, title: `FDE ${t('missionHero.metrics.0')}`, desc: '高频高痛优先，ROI 快速验证' },
         { icon: GitFork, title: t('missionHero.metrics.1'), desc: '标准化节点，建立可执行 SOP' },
+        { icon: BookOpen, title: '企业级知识库', desc: '沉淀经验资产，构建企业级知识底座' },
         { icon: Bot, title: 'Agent 部署', desc: '快速试点上线，人机协同执行' },
-        { icon: ClipboardCheck, title: t('missionHero.metrics.3'), desc: '效果量化评估，持续迭代优化' },
+        { icon: SearchCheck, title: 'GEO 品牌建设', desc: '构建可信内容与证据，让品牌被 AI 搜索理解和引用' },
         { icon: ShieldCheck, title: '风险控制', desc: '权限隔离可控，安全合规运行' },
-        { icon: BookOpen, title: '知识库', desc: '沉淀经验资产，构建企业记忆' },
+        { icon: ClipboardCheck, title: t('missionHero.metrics.3'), desc: '效果量化评估，持续迭代优化' },
       ]
 
   const proofMetrics = isEnglish
@@ -91,7 +100,7 @@ export const HeroSection = () => {
               {t('missionHero.badge')}
             </div>
 
-            <p className="mb-4 text-sm font-semibold text-gold md:text-base">中山市彼得人工智能科技有限公司</p>
+            <p className="mb-4 text-sm font-semibold text-gold md:text-base">{companyName}</p>
 
             <h1 className="mb-5 max-w-5xl text-[2.55rem] font-black leading-[1.03] text-white md:text-[3.95rem] lg:text-[4.05rem]">
               {t('missionHero.titlePart1')}
@@ -107,7 +116,7 @@ export const HeroSection = () => {
             </p>
 
             <p className="mb-7 max-w-4xl border-l-2 border-cyan/45 pl-4 text-sm leading-7 text-text-muted md:text-base">
-              面向中小企业提供企业 AI 咨询、AI Agent 落地和企业知识库建设；不替客户承诺经营结果。
+              {serviceBoundary}
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
@@ -170,7 +179,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18 }}
-          className="relative z-10 mt-7 grid grid-cols-2 gap-4 rounded-xl border border-white/8 bg-[#08172d]/72 p-4 md:grid-cols-3 lg:grid-cols-6 lg:p-7"
+          className="relative z-10 mt-7 grid grid-cols-2 gap-4 rounded-xl border border-white/8 bg-[#08172d]/72 p-4 md:grid-cols-3 lg:grid-cols-4 lg:p-7 xl:grid-cols-7"
         >
           {featureItems.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="text-center">
@@ -178,7 +187,7 @@ export const HeroSection = () => {
                 <Icon className="h-10 w-10 md:h-12 md:w-12" strokeWidth={1.8} />
               </div>
               <h3 className="text-base font-bold text-white md:text-lg">{title}</h3>
-              <p className="mx-auto mt-2 max-w-[130px] text-xs leading-5 text-text-muted md:text-sm md:leading-6">{desc}</p>
+              <p className="mx-auto mt-2 max-w-[165px] text-xs leading-5 text-text-muted md:text-sm md:leading-6">{desc}</p>
             </div>
           ))}
         </motion.div>

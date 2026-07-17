@@ -17,8 +17,8 @@ function App({ pathname = '/' }: AppProps) {
     return (
       <div className="geo-site min-h-screen bg-background text-text">
         <Navbar pathname={pathname} />
-        <NotFoundPage />
-        <SiteFooter />
+        <NotFoundPage pathname={pathname} />
+        <SiteFooter pathname={pathname} />
       </div>
     )
   }
@@ -29,7 +29,7 @@ function App({ pathname = '/' }: AppProps) {
       <main>
         {page.kind === 'home' ? <HomePage /> : <ContentPage page={page} />}
       </main>
-      {page.kind !== 'home' && <SiteFooter />}
+      {page.kind !== 'home' && <SiteFooter pathname={page.path} />}
     </div>
   )
 }
