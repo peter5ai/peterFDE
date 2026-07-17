@@ -39,34 +39,34 @@ export const HeroSection = () => {
 
   const proofMetrics = isEnglish
     ? [
-        ['15+ years', 'Cross-domain practice'],
-        ['FDE method', 'Proven delivery framework'],
-        ['100% client-owned', 'Assets stay with you'],
-        ['No lock-in', 'You control the tools'],
+        ['Cross-domain', 'Business diagnosis'],
+        ['Small loop', 'Pilot first'],
+        ['Client-owned', 'Assets stay with you'],
+        ['Human review', 'Clear accountability'],
       ]
     : [
-        ['15年+', '跨领域商业实践'],
-        ['FDE 方法', '验证过的交付体系'],
-        ['100% 客户自有', '资产归你所有'],
-        ['无工具绑定', '你掌控一切'],
+        ['跨领域', '业务诊断'],
+        ['小闭环', '试点优先'],
+        ['客户自有', '资产归属'],
+        ['人工接管', '责任清晰'],
       ]
 
   const statCards = isEnglish
     ? {
-        health: 'Workflow health',
-        point: 'pts',
+        health: 'Diagnosis status',
+        point: 'Baseline mapping',
         agent: 'AI agent',
-        running: 'Running',
-        exception: 'Exception detection',
-        pending: 'pending',
+        running: 'Pilot first',
+        exception: 'Failure handling',
+        pending: 'Human takeover',
       }
     : {
-        health: '流程健康度',
-        point: '分',
+        health: '诊断状态',
+        point: '基线梳理',
         agent: 'AI 智能体',
-        running: '运行中',
-        exception: '异常识别',
-        pending: '条待处理',
+        running: '试点优先',
+        exception: '失败处理',
+        pending: '人工接管',
       }
 
   const quote = isEnglish
@@ -91,6 +91,8 @@ export const HeroSection = () => {
               {t('missionHero.badge')}
             </div>
 
+            <p className="mb-4 text-sm font-semibold text-gold md:text-base">中山市彼得人工智能科技有限公司</p>
+
             <h1 className="mb-5 max-w-5xl text-[2.55rem] font-black leading-[1.03] text-white md:text-[3.95rem] lg:text-[4.05rem]">
               {t('missionHero.titlePart1')}
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-cyan">
@@ -102,6 +104,10 @@ export const HeroSection = () => {
               {t('missionHero.descriptionLine1')}
               <br className="hidden md:block" />
               {t('missionHero.descriptionLine2')}
+            </p>
+
+            <p className="mb-7 max-w-4xl border-l-2 border-cyan/45 pl-4 text-sm leading-7 text-text-muted md:text-base">
+              面向中小企业提供企业 AI 咨询、AI Agent 落地和企业知识库建设；不替客户承诺经营结果。
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
@@ -139,10 +145,7 @@ export const HeroSection = () => {
             <div className="absolute right-6 top-8 flex w-[172px] flex-col gap-7">
               <div className="stat-float p-4">
                 <div className="text-xs font-semibold text-text">{statCards.health}</div>
-                <div className="mt-1 flex items-end gap-1 text-cyan">
-                  <span className="text-3xl font-bold text-text-muted">92</span>
-                  <span className="mb-1 text-sm">{statCards.point}</span>
-                </div>
+                <div className="mt-2 text-base font-bold text-cyan">{statCards.point}</div>
                 <ChartNoAxesColumnIncreasing className="ml-auto mt-1 text-cyan" size={50} />
               </div>
 
@@ -156,8 +159,7 @@ export const HeroSection = () => {
 
               <div className="stat-float p-4">
                 <div className="text-xs font-semibold text-text">{statCards.exception}</div>
-                <div className="mt-1 text-3xl font-bold text-text-muted">32</div>
-                <div className="text-xs text-text-muted">{statCards.pending}</div>
+                <div className="mt-2 text-base font-bold text-cyan">{statCards.pending}</div>
                 <ChartNoAxesColumnIncreasing className="ml-auto -mt-4 text-cyan" size={50} />
               </div>
             </div>

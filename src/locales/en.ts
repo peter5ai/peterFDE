@@ -252,10 +252,10 @@ export const en = {
       titleHighlight: "the second best time is now",
       quote: "\"I don't sell code you can't understand; I only help you restructure business flows for profit and efficiency.\"",
       qrAlt: "Personal WeChat QR Code",
-      tag: "Scan now for Peter's exclusive bonus",
-      boxTitle: "Enterprise AI Workflow Efficiency Plan & On-site Diagnosis",
-      boxPrice: "Value ¥5,000 / 1 Hour",
-      boxDesc: "For the first 3 bosses who scan to add my WeChat today, I will give away a free on-site diagnosis quota. Let's build your enterprise's true 'CEO AI Master Brain' together, using AI thinking to reshape workflows and increase efficiency.",
+      tag: "Contact PeterAI",
+      boxTitle: "Enterprise AI workflow conversation",
+      boxPrice: "Start with one real workflow",
+      boxDesc: "Bring one frequent, labor-intensive, or error-prone workflow. We first decide whether it is worth starting, who owns it, how results are accepted, and how people take over when it fails.",
       scanText: "SCAN TO CONNECT"
     }
   }

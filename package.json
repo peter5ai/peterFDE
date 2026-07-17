@@ -5,8 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && npm run build:client && npm run build:ssr && node scripts/prerender.mjs",
+    "build:client": "vite build --logLevel warn",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist-ssr --logLevel warn",
     "lint": "eslint .",
+    "test:geo": "node --test tests/geo-output.test.mjs",
+    "verify": "npm run build && npm run test:geo && npm run lint",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"

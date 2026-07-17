@@ -252,10 +252,10 @@ export const zh = {
       titleHighlight: "其次是现在",
       quote: "“我不卖你听不懂的代码，我只帮你重构利润和效率的业务流。”",
       qrAlt: "个人微信二维码",
-      tag: "此刻扫码添加peter专属福利",
-      boxTitle: "企业AI业务流程的提效方案 驻场诊断服务",
-      boxPrice: "价值 ¥5,000 / 1小时",
-      boxDesc: "今天前 3 位扫码添加微信的老板，我将送出免费驻场诊断名额。让我们一起，打造你企业真正的“CEO AI 主脑”，用AI思维重塑企业业务流程，降本增效。",
+      tag: "联系 PeterAI",
+      boxTitle: "企业 AI 流程初步沟通",
+      boxPrice: "从一个真实流程开始",
+      boxDesc: "带上一个高频、耗人或容易出错的真实流程。我们先判断是否值得启动、由谁负责、如何验收，以及失败时怎样人工接管。",
       scanText: "SCAN TO CONNECT"
     }
   }

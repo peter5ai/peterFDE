@@ -1,29 +1,35 @@
+import './i18n'
 import { Navbar } from './components/Navbar'
-import { HeroSection } from './components/HeroSection'
-import { Timeline } from './components/Timeline'
-import { PainPoints } from './components/PainPoints'
-import { FitCheck } from './components/FitCheck'
-import { DeliveryLoop } from './components/DeliveryLoop'
-import { OrgChart } from './components/OrgChart'
-import { Cases } from './components/Cases'
-import { LogicMoat } from './components/LogicMoat'
-import { CTA } from './components/CTA'
+import { SiteFooter } from './components/SiteFooter'
+import { getPageByPath } from './content/site'
+import { ContentPage } from './pages/ContentPage'
+import { HomePage } from './pages/HomePage'
+import { NotFoundPage } from './pages/NotFoundPage'
 
-function App() {
+type AppProps = {
+  pathname?: string
+}
+
+function App({ pathname = '/' }: AppProps) {
+  const page = getPageByPath(pathname)
+
+  if (!page) {
+    return (
+      <div className="geo-site min-h-screen bg-background text-text">
+        <Navbar pathname={pathname} />
+        <NotFoundPage />
+        <SiteFooter />
+      </div>
+    )
+  }
+
   return (
-    <div className="bg-luxury-gradient min-h-screen text-text">
-      <Navbar />
+    <div className="geo-site min-h-screen bg-background text-text">
+      <Navbar pathname={page.path} />
       <main>
-        <HeroSection />
-        <Timeline />
-        <PainPoints />
-        <FitCheck />
-        <DeliveryLoop />
-        <OrgChart />
-        <Cases />
-        <LogicMoat />
-        <CTA />
+        {page.kind === 'home' ? <HomePage /> : <ContentPage page={page} />}
       </main>
+      {page.kind !== 'home' && <SiteFooter />}
     </div>
   )
 }
